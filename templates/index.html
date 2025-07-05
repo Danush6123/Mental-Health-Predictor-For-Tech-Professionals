@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Employee Mental Health Calculator</title>
+    <!-- Link to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Link to our stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-icon">🧠</div>
+            <h1>Mental Health Predictor</h1>
+            <p>For Tech Professionals</p>
+        </header>
+        
+        <form action="/" method="post">
+            <div class="form-group">
+                <label for="Age">Your Age</label>
+                <input type="number" id="Age" name="Age" required min="18" max="75" placeholder="e.g., 32">
+            </div>
+
+            <div class="form-group">
+                <label for="Gender">Your Gender</label>
+                <select id="Gender" name="Gender" required>
+                    <option value="" disabled selected>Select your gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="family_history">Family history of mental illness?</label>
+                <select id="family_history" name="family_history" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="work_interfere">Does it interfere with your work?</label>
+                <select id="work_interfere" name="work_interfere" required>
+                    <option value="" disabled selected>Select frequency</option>
+                    <option value="Often">Often</option>
+                    <option value="Sometimes">Sometimes</option>
+                    <option value="Rarely">Rarely</option>
+                    <option value="Never">Never</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="benefits">Does your employer provide mental health benefits?</label>
+                <select id="benefits" name="benefits" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Don't know">Don't know</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="care_options">Are you aware of the care options?</label>
+                <select id="care_options" name="care_options" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Not sure">Not sure</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="anonymity">Is your anonymity protected?</label>
+                <select id="anonymity" name="anonymity" required>
+                     <option value="" disabled selected>Select an option</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Don't know">Don't know</option>
+                </select>
+            </div>
+            
+            <button type="submit">Get Prediction</button>
+        </form>
+
+        {% if prediction_text %}
+        <div class="result">
+            <div class="result-header">Prediction Result</div>
+            <p class="result-text">{{ prediction_text | safe }}</p>
+        </div>
+        {% endif %}
+
+        <footer>
+            <p><strong>Disclaimer:</strong> This is an educational tool based on a machine learning model. It is not a substitute for professional medical advice. The model's accuracy is approximately 82%.</p>
+        </footer>
+    </div>
+</body>
+</html>

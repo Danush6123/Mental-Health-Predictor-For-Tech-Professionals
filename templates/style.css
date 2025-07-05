@@ -1,0 +1,214 @@
+/* --- DARK THEME: Basic Setup & Custom Properties --- */
+:root {
+    --green-accent: #28a745; /* A vibrant, positive green */
+    --green-accent-dark: #218838;
+    --background-dark: #121212; /* A deep, dark gray for the body */
+    --container-bg: #1e1e1e;   /* A slightly lighter dark gray for the form card */
+    --input-bg: #2a2a2e;       /* Background for input fields */
+    
+    --text-primary: #f1f1f1;    /* Primary text color (off-white) */
+    --text-secondary: #aaaaaa;  /* Muted text for labels and footers */
+    
+    --border-color: #404040;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --focus-glow: rgba(40, 167, 69, 0.3); /* Green glow for focused elements */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* --- Main Container & Header --- */
+.container {
+    background-color: var(--container-bg);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px var(--shadow-color);
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+.header-icon {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 10px;
+    color: var(--green-accent); /* Use green for the icon */
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--text-primary);
+}
+
+header p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+/* --- Form Styling --- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Custom dropdown arrow for dark theme (it's now white) */
+select {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23f1f1f1" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 24px;
+}
+
+/* Style for the placeholder text in selects */
+select:required:invalid {
+  color: var(--text-secondary);
+}
+option[value=""][disabled] {
+  display: none;
+}
+option {
+  color: var(--text-primary);
+}
+
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--green-accent);
+    box-shadow: 0 0 0 3px var(--focus-glow);
+}
+
+/* --- Button Styling --- */
+button {
+    background: var(--green-accent);
+    color: var(--white-color);
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 15px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    
+    /* --- Using a LOCAL image --- */
+    background-image: linear-gradient(rgba(25, 32, 72, 0.7), rgba(25, 32, 72, 0.7)), url('/static/images/background.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+}
+
+button:hover {
+    background: var(--green-accent-dark);
+    transform: translateY(-2px);
+}
+
+/* --- Result & Footer --- */
+.result {
+    margin-top: 30px;
+    padding: 25px;
+    background-color: var(--input-bg);
+    border-left: 5px solid var(--green-accent); /* Green accent border */
+    border-radius: 12px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.result-header {
+    font-weight: 600;
+    color: var(--green-accent);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.result-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.85em;
+    color: var(--text-secondary);
+}
+
+footer p {
+    line-height: 1.5;
+}
